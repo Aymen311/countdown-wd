@@ -1,11 +1,9 @@
 window.addEventListener("load", () => {
-	const elDays = document.querySelector(".days");
 	const elHours = document.querySelector(".hours");
 	const elMinutes = document.querySelector(".minutes");
 	const elSeconds = document.querySelector(".seconds");
 
 	let timeLeft = {
-		days: 0,
 		hours: 0,
 		minutes: 0,
 		seconds: 0
@@ -13,8 +11,7 @@ window.addEventListener("load", () => {
 
 	let totalSeconds = 0;
 
-	let futureDate = new Date();
-	futureDate.setDate(futureDate.getDate() + 14);
+	let futureDate = new Date(2021, 12, 25, 20, 00, 00);
 
 	function init() {
 		totalSeconds = Math.floor((futureDate - new Date()) / 1000);
@@ -36,10 +33,6 @@ window.addEventListener("load", () => {
 				if (timeLeft.hours >= 0 && timeLeft.minutes < 0) {
 					timeLeft.minutes = 59;
 					--timeLeft.hours;
-					if (timeLeft.days >= 0 && timeLeft.hours < 0) {
-						timeLeft.hours = 23;
-						--timeLeft.days;
-					}
 				}
 			}
 		}
@@ -48,7 +41,6 @@ window.addEventListener("load", () => {
 	}
 
 	function printTime() {
-		animateFlip(elDays, timeLeft.days);
 		animateFlip(elHours, timeLeft.hours);
 		animateFlip(elMinutes, timeLeft.minutes);
 		animateFlip(elSeconds, timeLeft.seconds);
@@ -83,7 +75,6 @@ window.addEventListener("load", () => {
 	}
 
 	function setTimeLeft() {
-		timeLeft.days = Math.floor(totalSeconds / (60 * 60 * 24));
 		timeLeft.hours = Math.floor((totalSeconds / (60 * 60)) % 24);
 		timeLeft.minutes = Math.floor((totalSeconds / 60) % 60);
 		timeLeft.seconds = Math.floor(totalSeconds % 60);

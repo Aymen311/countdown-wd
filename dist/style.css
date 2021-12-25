@@ -4,13 +4,13 @@
   padding: 0px;
 }
 
-body{
-  background: url('../assets/countdown-background.png'); 
+body {
+  background: url("../assets/countdown-background.png");
 }
 
 .main-content {
   align-items: center;
-  display : flex ; 
+  display: flex;
   flex-flow: column nowrap;
   font-family: "Red Hat Text", sans-serif;
   min-height: 100vh;
@@ -29,7 +29,7 @@ body{
 }
 .main-content .container-countdown {
   display: flex;
-  flex-flow: row nowrap;
+  flex-direction: row;
 }
 .main-content .countdown-block {
   align-items: center;
@@ -48,30 +48,31 @@ body{
   border-radius: 8px;
   box-shadow: 0px 8px 0px 0px #16151d;
   color: #fb6087;
-  font-size: 5.5em;
-  height: 140px;
-  line-height: 138px;
-  margin-bottom: 27px;
+  font-size: 4em;
+  height: 90px;
+  line-height: 90px;
+  margin-bottom: 40px;
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 150px;
+  width: 100px;
 }
-.main-content .time-element::before, .main-content .time-element::after {
+.main-content .time-element::before,
+.main-content .time-element::after {
   background: #24242e;
   border-radius: 50%;
   content: "";
-  height: 10px;
+  height: 5px;
   position: absolute;
   top: calc(50% - 5px);
-  width: 10px;
+  width: 5px;
   z-index: 6;
 }
 .main-content .time-element::before {
-  left: -5px;
+  left: -4px;
 }
 .main-content .time-element::after {
-  right: -5px;
+  right: -4px;
 }
 .main-content .time-element > span {
   left: 0;
@@ -176,7 +177,7 @@ body{
   outline-offset: 0.5em;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 400px) {
   .main-content .container-countdown {
     flex-direction: column;
   }
