@@ -14,10 +14,10 @@ window.addEventListener("load", () => {
 	let futureDate = new Date(2021, 12, 25, 20, 00, 00);
 
 	function init() {
-		totalSeconds = Math.floor((futureDate - new Date()) / 1000);
+		totalSeconds = Math.floor((futureDate - Date.now()) / 1000);
 		setTimeLeft();
 		let interval = setInterval(() => {
-			if (totalSeconds < 0) {
+			if (totalSeconds <= 0) {
 				clearInterval(interval);
 			}
 			countTime();
@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
 	}
 
 	function countTime() {
-		if (totalSeconds > 0) {
+		if (totalSeconds > 2678400) {
 			--timeLeft.seconds;
 			if (timeLeft.minutes >= 0 && timeLeft.seconds < 0) {
 				timeLeft.seconds = 59;
@@ -35,8 +35,13 @@ window.addEventListener("load", () => {
 					--timeLeft.hours;
 				}
 			}
+			--totalSeconds;
+		} else {
+			timeLeft.seconds = 0;
+			timeLeft.minutes = 0;
+			timeLeft.hours = 0;
 		}
-		--totalSeconds;
+		console.log(totalSeconds)
 		printTime();
 	}
 
