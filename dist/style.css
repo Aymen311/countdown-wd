@@ -6,6 +6,7 @@
 
 body {
   background-color: #9cd8e5;
+  overflow-y: hidden;
 }
 
 .main-content {
