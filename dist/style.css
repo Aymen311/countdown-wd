@@ -5,7 +5,7 @@
 }
 
 body {
-  background: url("../assets/countdown-background.png");
+  background-color: #9cd8e5;
 }
 
 .main-content {
@@ -16,12 +16,12 @@ body {
   min-height: 20vh;
   justify-content: lex-start;
   line-height: 1.5;
-  padding-top: 15vh;
+  padding-top: 5vh;
   position: relative;
 }
 .main-content .main-title {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.2em;
   letter-spacing: 8px;
   margin: 20px 20px 20px;
   text-align: center;
